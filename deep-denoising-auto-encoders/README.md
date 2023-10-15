@@ -1,9 +1,12 @@
-Denoising corrupted images with only $100$ epochs and $133075$ parameters:
+<details>
+  <summary>Denoising corrupted CIFAR-10 images with only $100$ epochs and $133075$ parameters</summary>
 
 | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/bee4eebb-7d4c-4e20-9b57-2baf516edb59" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/a96879a6-a5df-4a6c-b961-a5118f7130a0" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/723dafd1-2c12-4527-a13e-2a0fb17ed667" width=300>
 |:--:| :--:| :--:| 
 
-Auto encoder with ReLU activation functions, no pooling, no interpolation:
+However, the training is unstable as the loss can stagnate from the first epoch.
+
+Autoencoder with ReLU activation functions, no pooling, no interpolation:
 ```
 AutoEncoder(
   (encode): Encoder(
@@ -22,3 +25,4 @@ AutoEncoder(
   )
 )
 ```
+</details>
