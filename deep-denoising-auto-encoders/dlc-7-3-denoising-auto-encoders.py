@@ -79,10 +79,6 @@ class Corruptor():
                     p = kwds["p"]  # proba erasure
                     mask = x.new(x.shape).bernoulli_(1-p)
                     return x*mask
-                case "block":  # block masking
-                    size = kwds["size"]
-                    x_noisy = x.clone()
-                    i, j = torch.randint()
                 case _: # additive white gaussian noise
                     return x+x.new(x.shape).normal_(0, 0.1)
         else:
