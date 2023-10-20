@@ -1,8 +1,8 @@
 <details>
   <summary>Denoising corrupted MNIST images with only $100$ epochs and $120657$ parameters</summary>
 
-| <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/7f46699e-c534-4951-bfa4-9d322ce762d1" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/b93e3184-1dd8-4a58-9dba-b8a10e6ce897" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/0438ce7f-8eba-4113-9c03-da6f6ef0b1b3" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/723dafd1-2c12-4527-a13e-2a0fb17ed667" width=300>
-|:--:| :--:| :--:| :--:| 
+| <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/7f46699e-c534-4951-bfa4-9d322ce762d1" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/b93e3184-1dd8-4a58-9dba-b8a10e6ce897" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/0438ce7f-8eba-4113-9c03-da6f6ef0b1b3" width=300>
+|:--:| :--:| :--:|
 
 However, the training is unstable as the loss can stagnate from the first epoch.
 
@@ -26,7 +26,6 @@ AutoEncoder(
 )
 ```
 
-![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/9161d55b-da58-46d6-95f3-743e5ea5f94a)
 
 </details>
 
