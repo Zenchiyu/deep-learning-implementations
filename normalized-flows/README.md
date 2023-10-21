@@ -1,7 +1,7 @@
 <details>
 <summary>Non-volume preserving network on different test cases</summary>
 
-I reimplemented a NVP network from our course (heavily similar) using 4 invertible coupling layers made with Multi-Layer Perceptrons. Plots on the left and middle are obtained with 500 epochs and plots on the right are obtained with 1000 epochs (about 5 min of training).
+I reimplemented an NVP network (heavily based on Fleuret's course) using 4 invertible coupling layers made with Multi-Layer Perceptrons. We trained our model with 500 epochs in all plots except those on the right. These used 1000 epochs (about 5 min of training).
 
 - First test case: A standard normal distribution split in two
 
@@ -17,7 +17,7 @@ We created the data distribution by cutting a standard normal distribution in tw
 |:--:| :--:| :--:|
 
 
-In red, we have $f_\theta^{-1}(z)$ where $f_\theta$ is our model, a normalizing flow (transforming our data distribution into a standard multivariate normal distribution). The curves are obtained by applying either $f_\theta^{-1}$ (red)
+In red, we have $f_\theta^{-1}(z)$ where $f_\theta$, our model, is a normalizing flow (transforming our data distribution into a standard multivariate normal distribution). The curves are obtained by applying either $f_\theta^{-1}$ (red)
 or $f^{-1}$ (true, in blue) on circles.
 
 Model:
