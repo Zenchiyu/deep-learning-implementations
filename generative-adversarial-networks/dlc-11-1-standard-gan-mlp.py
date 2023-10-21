@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 
 from torch.utils.data import DataLoader
-from test_case_generative_modelling import TestCaseGen, plot_transformed_circles
+from toy_distributions_generative_modelling import ToyGen, plot_transformed_circles
 from tqdm import tqdm
 
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     
     # f_inv = lambda x: torch.stack([torch.ones(x.shape[0]), torch.sign((x @ M)[:, 0])], dim=1)*(x @ M) + torch.stack([torch.sign((x @ M)[:, 0]), torch.zeros(x.shape[0])], dim=1)
     # f_inv = lambda x: x @ torch.tensor([[1, 0.5], [0.5, 1]])
-    real_data = TestCaseGen(N, f_inv=f_inv)
+    real_data = ToyGen(N, f_inv=f_inv)
     train_loader = DataLoader(real_data, shuffle=True,
                                   batch_size=batch_size,
                                   num_workers=4, pin_memory=True)
