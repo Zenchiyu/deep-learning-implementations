@@ -41,7 +41,7 @@ NVPNet(
 ```
 
 Remark(s):
-The model is trained by maximizing the log-likelihood (=minimizing the negative log-likelihood or empirical cross-entropy). This loss is tractable since we use [invertible] layers that simplify the computation of the determinant of the Jacobian in the formula of the change of variable in probability theory.
+We train our model by maximizing the log-likelihood (=minimizing the negative log-likelihood or empirical cross-entropy). This loss is tractable since we use [invertible] layers that simplify the computation of the determinant of the Jacobian in the formula of the change of variable in probability theory.
 
 
 </details>
