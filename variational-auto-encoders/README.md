@@ -1,7 +1,7 @@
 - Variational Auto Encoders (VAE) (and $\beta$-VAE)
 
 I've reimplemented a VAE based on two small convnets. The encoder predicts parameters of a gaussian distribution and the decoder predicts a conditional expectation (might be unlikely under the true data distribution).
-In VAE, we don't optimize the log likelihood, we optimize the variational lower bound (ELBO: evidence lower bound) which tries to impose a distribution in the latent space (e.g. gaussian) and tries to have good reconstructions.
+In VAE, instead of optimizing the log-likelihood, we optimize the variational lower bound (ELBO: evidence lower bound). It tries to impose a distribution in the latent space (e.g. gaussian) and tries to have good reconstructions.
 
 This is what I get with $300$ epochs for MNIST and CIFAR-10 (about 7-8 hours of training).
 
