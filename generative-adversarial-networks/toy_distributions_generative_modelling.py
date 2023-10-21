@@ -4,7 +4,7 @@ import torch
 from torch.utils.data import Dataset
 
 
-class TestCaseGen(Dataset):
+class ToyGen(Dataset):
     def __init__(self, nb: int, f_inv: callable) -> None:
         super().__init__()
         # 2D Gaussian
@@ -48,7 +48,7 @@ if __name__ == "__main__":
     f_inv = lambda x: x @ torch.tensor([[1, 0.5], [0.5, 1]])
     # M = torch.tensor([[1, 0.5], [0.5, 1]])
     # f_inv = lambda x: torch.stack([torch.ones(x.shape[0]), torch.sign((x @ M)[:, 0])], dim=1)*(x @ M)
-    data = TestCaseGen(10000, f_inv=f_inv)
+    data = ToyGen(10000, f_inv=f_inv)
     data.plot()
     # Plotting transformed circles
     data.plot_transformed_circles()
