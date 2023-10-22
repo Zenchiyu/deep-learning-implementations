@@ -74,9 +74,9 @@ We can try to observe our discriminator's performance for each epoch:
 
 It makes sense that the discriminator predicts "real" for real samples and "fake" for fake samples!
 
-Remark(s): I forgot to create checkpoints and forgot to set the bias of the generator's last convolutional layer to false. I also forgot to set the generators and discriminators back to training mode after evaluation. It takes around $2$ hours to train my model with $50$ epochs on an AMD Ryzen 5 5600 6-Core Processor since I currently don't have access to a GPU. [The experiment was tracked using Weights & Biases](https://wandb.ai/stephane-nguyen/standard-gan-cnn/runs/7pxffg23?workspace=user-stephane-nguyen)
+Remark(s):
 
-Fixing what I forgot in the remarks and waiting for the results:
-
-![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/2118bfc2-a97a-412e-a04f-21775963bea5)
+- I forgot to create checkpoints and forgot to set the bias of the generator's last convolutional layer to false.
+- It takes around $2$ hours to train my model with $50$ epochs on an AMD Ryzen 5 5600 6-Core Processor since I currently don't have access to a GPU. [The experiment was tracked using Weights & Biases](https://wandb.ai/stephane-nguyen/standard-gan-cnn/runs/7pxffg23?workspace=user-stephane-nguyen)
+- I also forgot to set the generators and discriminators back to training mode after evaluation. However, it seems that setting our models to evaluation mode after first epoch worked better than alternating between evaluation and training mode. Alternating between evaluation and training mode made my generated samples completely white or black after some epochs.
 
