@@ -78,5 +78,8 @@ Remark(s):
 
 - I forgot to create checkpoints and forgot to set the bias of the generator's last convolutional layer to false.
 - It takes around $2$ hours to train my model with $50$ epochs on an AMD Ryzen 5 5600 6-Core Processor since I currently don't have access to a GPU. [The experiment was tracked using Weights & Biases](https://wandb.ai/stephane-nguyen/standard-gan-cnn/runs/7pxffg23?workspace=user-stephane-nguyen)
-- I also forgot to set the generators and discriminators back to training mode after evaluation. However, it seems that setting our models to evaluation mode after first epoch worked better than alternating between evaluation and training mode. Alternating between evaluation and training mode made my generated samples completely white or black after some epochs.
+- Setting our models to evaluation mode after the first epoch is apparently (empirically) better than training mode. We observed it after mistakenly forgetting to reset the generators and discriminators to training mode after evaluation. In contrast, alternating between evaluation and training mode made my generated samples completely white or black after some epochs.
+
+![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/edcb1e15-2724-4399-a1b2-25ab4c243165)
+
 
