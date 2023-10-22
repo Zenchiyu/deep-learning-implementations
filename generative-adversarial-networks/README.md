@@ -72,6 +72,6 @@ We can try to observe our discriminator's performance for each epoch:
 |:--:| :--:| :--:|
 |Average discriminator's output based on a batch of: real train, fake train , real test | Std discriminator's output based on a batch of: real train, fake train , real test | Generator and discriminator training losses based on a batch of real [x]or fake samples|
 
-Remark(s): I forgot to create checkpoints and also forgot to set the bias of the generator's last convolutional layer to false. It takes around $2$ hours to train my model with $50$ epochs on an AMD Ryzen 5 5600 6-Core Processor since I currently don't have access to a GPU. [The experiment was tracked using Weights & Biases](https://wandb.ai/stephane-nguyen/standard-gan-cnn/runs/7pxffg23?workspace=user-stephane-nguyen)
+Remark(s): I forgot to create checkpoints and forgot to set the bias of the generator's last convolutional layer to false. I also forgot to set the generators and discriminators back to training mode after evaluation. It takes around $2$ hours to train my model with $50$ epochs on an AMD Ryzen 5 5600 6-Core Processor since I currently don't have access to a GPU. [The experiment was tracked using Weights & Biases](https://wandb.ai/stephane-nguyen/standard-gan-cnn/runs/7pxffg23?workspace=user-stephane-nguyen)
 
 
