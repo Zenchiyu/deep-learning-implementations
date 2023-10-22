@@ -76,4 +76,7 @@ It makes sense that the discriminator predicts "real" for real samples and "fake
 
 Remark(s): I forgot to create checkpoints and forgot to set the bias of the generator's last convolutional layer to false. I also forgot to set the generators and discriminators back to training mode after evaluation. It takes around $2$ hours to train my model with $50$ epochs on an AMD Ryzen 5 5600 6-Core Processor since I currently don't have access to a GPU. [The experiment was tracked using Weights & Biases](https://wandb.ai/stephane-nguyen/standard-gan-cnn/runs/7pxffg23?workspace=user-stephane-nguyen)
 
+Fixing what I forgot in the remarks and waiting for the results:
+
+![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/47a01c8e-ff5e-4802-ab1c-7f76a47eef5f)
 
