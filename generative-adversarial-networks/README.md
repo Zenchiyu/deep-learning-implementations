@@ -78,5 +78,5 @@ Remark(s): I forgot to create checkpoints and forgot to set the bias of the gene
 
 Fixing what I forgot in the remarks and waiting for the results:
 
-![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/47a01c8e-ff5e-4802-ab1c-7f76a47eef5f)
+![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/2118bfc2-a97a-412e-a04f-21775963bea5)
 
