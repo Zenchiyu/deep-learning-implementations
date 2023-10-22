@@ -68,7 +68,7 @@ I've rescaled the generated samples to be in the [0, 1] range between displaying
 
 We can try to observe our discriminator's performance for each epoch:
 
-| <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/ad2acb15-1b2c-459c-9b0b-70b52ede8642" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/04450439-0da1-402f-9e3c-1e253f0b57cd" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/f85b05fa-cd1a-4fe6-a2c9-2b2d017b5db5" width=300> 
+| <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/ad2acb15-1b2c-459c-9b0b-70b52ede8642" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/4b442c53-3a56-410a-a90e-7798a72427f2" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/f85b05fa-cd1a-4fe6-a2c9-2b2d017b5db5" width=300> 
 |:--:| :--:| :--:|
 |Average discriminator's output based on a batch of: real train, fake train , real test | Std discriminator's output based on a batch of: real train, fake train , real test | Generator and discriminator training losses based on a batch of real [x]or fake samples|
 
