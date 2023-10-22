@@ -18,27 +18,6 @@ class Generator(nn.Module):
         self.input_dim = input_dim
         self.output_shape = output_shape
         # N x input_dim x 1 x 1 -> increase the spatial dimensions using interpolations and conv
-        # self.m = nn.Sequential(
-        #     nn.Upsample(scale_factor=2, mode='bilinear'),  # 2x2
-        #     nn.Conv2d(input_dim, 256, kernel_size=3, padding=1, bias=False),  # same padding conv
-        #     nn.BatchNorm2d(256),
-        #     nn.ReLU(inplace=True),
-        #     nn.Upsample(scale_factor=2, mode='bilinear'),  # 4x4
-        #     nn.Conv2d(256, 128, kernel_size=3, padding=1, bias=False),
-        #     nn.BatchNorm2d(128),
-        #     nn.ReLU(inplace=True),
-        #     nn.Upsample(scale_factor=2, mode='bilinear'),  # 8x8
-        #     nn.Conv2d(128, 64, kernel_size=3, padding=1, bias=False),
-        #     nn.BatchNorm2d(64),
-        #     nn.ReLU(inplace=True),
-        #     nn.Upsample(scale_factor=2, mode='bilinear'),  # 16x16
-        #     nn.Conv2d(64, 32, kernel_size=3, padding=1, bias=False),
-        #     nn.BatchNorm2d(32),
-        #     nn.ReLU(inplace=True),
-        #     nn.Upsample(scale_factor=2, mode='bilinear'),  # 32x32
-        #     nn.Conv2d(32, output_shape[0], kernel_size=3, padding=1),
-        #     nn.Tanh()
-        # )
         self.m = nn.Sequential(
             nn.Upsample(scale_factor=2, mode='bilinear'),  # 2x2
             nn.Conv2d(input_dim, 256, kernel_size=3, padding=1, bias=False),  # same padding conv
