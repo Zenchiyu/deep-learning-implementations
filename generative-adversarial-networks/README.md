@@ -60,7 +60,7 @@ I reimplemented a Deep Convolutional GAN inspired by the DCGAN from our course u
 |:--:| :--:| :--:|
 |After first epoch| After $6$ epochs | After $22$ epochs|
 
-I've rescaled the generated samples to be in the [0, 1] range between displaying them. Initially, the generator seems to create edge detectors. As training progresses, some generated pictures look like boats while others don't make sense.
+I've rescaled the generated samples to be in the [0, 1] range before displaying them. Initially, the generator seems to create edge detectors. As training progresses, some generated pictures look like boats while others don't make sense.
 
 | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/8ff75ef0-4b87-4028-9a0f-4897f75120a4" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/6d1d03b1-e9c5-4474-9f1a-2ece2f564bf5" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/56575292-5cc0-49f7-a679-c195b67fc639" width=300>
 |:--:| :--:| :--:|
