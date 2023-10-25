@@ -26,7 +26,7 @@ In this section, I explain what are some of the concepts (non-exhaustive) I find
   
 - Information theoretical concepts:
   - Entropy
-  - Cross-emtropy
+  - Cross-entropy
   - Mutual Information
   - Kullback-Leibler divergence
 - Metaheuristics for optimization concepts:
