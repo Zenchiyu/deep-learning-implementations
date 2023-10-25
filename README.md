@@ -2,9 +2,9 @@
 
 Deep learning implementations.
 
-## Step-by-step
+## Ramping-up
 
-In this section, I explain what are some of the concepts (non-exhaustive) I find very useful when going through Fleuret's course and paper(s).
+In this section, I explain what are some of the concepts (non-exhaustive) I find very useful in my ramp-up when going through Fleuret's course, paper(s) and other resources.
 
 
 <details>
