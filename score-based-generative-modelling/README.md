@@ -8,7 +8,7 @@ We trained our model with 1000 epochs (about 7-8 min of training). The first col
 
 - First test case: A standard normal distribution split in two
 
-| <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/3701fc95-8507-4502-a321-5d934d357cc8" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/a2a6368a-d555-423d-b822-ae5c39066f41" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/2ffb1442-1d6b-468d-8381-3a6f36a019bc" width=300>
+| <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/bc24135e-1621-41e5-846a-647311c7fbe1" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/65fe4c76-acef-467b-add1-4fa795aacf5f" width=300> | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/6b4310d7-caa4-4d7b-907b-36040414b5d5" width=300>
 |:--:| :--:| :--:|
 
 We created the data distribution by cutting a standard normal distribution in two and pushing the two parts by $1$ unit away from $0$.
