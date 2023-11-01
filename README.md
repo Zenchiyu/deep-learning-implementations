@@ -1,6 +1,8 @@
 # Deep learning implementations
 
-Deep learning implementations.
+Deep learning implementations
+
+Note: For toy distributions I generally don't normalize my data.
 
 ## Ramping-up
 
