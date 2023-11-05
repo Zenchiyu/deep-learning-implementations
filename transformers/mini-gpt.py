@@ -13,7 +13,10 @@ is all you need" paper
 import numpy as np
 import torch
 import torch.nn as nn
+import torchtext
 from typing import Optional
+from torch.utils.data import DataLoader
+from torch.utils.data.backward_compatibility import worker_init_fn
 
 
 class GPT:
@@ -52,7 +55,7 @@ class Decoder(nn.Module):
         self.pos_emb = nn.Embedding.from_pretrained(pos_embed_matrix, freeze=True)
         
         ### Masked Multi-Head Attention layers
-        mask = torch.tril(torch.ones((T, T), dtype=torch.bool))  # TODO uni-directional self-attention !!
+        mask = torch.tril(torch.ones((T, T), dtype=torch.bool))  # uni-directional self-attention !!
         kwargs_mhas = {"Tx": T,
                        "Tz": T,
                        "Dx": embed_dim,
@@ -207,6 +210,7 @@ class Attention(nn.Module):
         self.query_proj = nn.Linear(Dx, Datt)
         self.key_proj = nn.Linear(Dz, Datt)
         self.value_proj = nn.Linear(Dz, Dout)
+        self.softmax = nn.Softmax(dim=-1)  # softmax on the scaled-dot prod
 
     def forward(self,
                 x: torch.Tensor,
@@ -227,13 +231,23 @@ class Attention(nn.Module):
         S = torch.einsum("bxd,bzd->bxz", Q, K)  # -> N x Tx x Tz
         # Masking
         S[:, ~self.mask] = -torch.inf
+        SS = S/np.sqrt(self.Datt)  # scaled score
         # Attention matrix for each pair of sequences
-        A = (S/np.sqrt(self.Datt)).softmax(dim=-1)  # N x Tx x Tz
+        A = self.softmax(SS)  # N x Tx x Tz
         # y = torch.einsum("bxz,bzo->bxo", A, V)
         y = torch.bmm(A, V)  # N x Tx x Dout
         return y
-    
+
+
+def forward_hook_print_first_sample(module: nn.Module,
+                       input: torch.Tensor,
+                       output: torch.Tensor) -> None:
+    print(f"\nModule: {module}\n"+\
+          f"Output shape: {output.shape}\nOutput[0]:\n{output[0]}")
+
 if __name__ == "__main__":
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
     config = {"T": 7,  # max seq. length
               "vocab_size": 10,
               "embed_dim": 4,
@@ -241,9 +255,31 @@ if __name__ == "__main__":
               "num_layers": 2,
               "num_heads": 1}
     
+    dataset = torchtext.datasets.WikiText2
+    dataset_name = str.lower(dataset.__name__)
+
     model = Decoder(**config)
     print(model)
     print(f"\nNumber of parameters: {sum(map(lambda x: x.numel(), model.parameters()))}")
 
+    # Add forward-hooks to observe attention scores
+    # Here of the first-layer MHA, first head
+    layer = model.norm_add_mhas[0].sublayer.attention_layers[0].softmax
+    handle = layer.register_forward_hook(forward_hook_print_first_sample)
+
+
     x = torch.randint(config["vocab_size"],size=(10, config["T"]))
     y = model(x)
+
+
+    # # Dataset: https://blog.salesforceairesearch.com/the-wikitext-long-term-dependency-language-modeling-dataset/
+    # config |= {"device": device,
+    #           "batch_size": 128}
+    # train_dp = dataset(f'.data/{dataset_name}', split="train")
+    # # https://pytorch.org/text/stable/datasets.html#datapipes-warnings
+    # train_loader = DataLoader(train_dp, num_workers=4,
+    #                           worker_init_fn=worker_init_fn,
+    #                           drop_last=True,
+    #                           batch_size=config["batch_size"],
+    #                           shuffle=True,
+    #                           pin_memory=torch.cuda.is_available())
