@@ -22,6 +22,13 @@ In this section, I explain what are some of the concepts (non-exhaustive) I find
 - Noise Conditional Score Networks
 </details>
 
+<details>
+  <summary>Work In Progress</summary>
+
+- Noise Conditional Score Networks on CIFAR-10 or FashionMNIST (not working yet so I didn't upload it)
+- Denoising Diffusion Probabilistic Model (not working yet so I didn't upload it)
+- Generative Pre-trained Network, decoder-only Transformer (did not train the model, byte pair encoding tokenizer not implemented, inference missing) but I've uploaded the model
+</details>
 
 <details>
   <summary>Other useful concepts</summary>
