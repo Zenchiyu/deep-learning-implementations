@@ -43,3 +43,14 @@ Remark(s): We don't maximize the log-likelihood (e.g. in NVP), a surrogate such 
 - Score matching
 - Annealed Langevin dynamics for sampling
 </details>
+
+<details>
+<summary>Denoising Diffusion Probabilistic Model using an MLP on my toy distributions</summary>
+
+I've reimplemented a Denoising Diffusion Probabilistic Model (DDPM) based on the "[Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)" paper by Ho et al (2020). I use a network similar to `NoiseConditionalScoreNetwork` to predict the noise. I condition the model on a scaled version of the time instead of noise (the scaling matters a lot, w/o => cannot sample).
+
+![image](https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/dacd2fc9-b134-4d2c-ac64-aa507511bf4c)
+
+- Interesting links:
+  - https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#connection-with-noise-conditioned-score-networks-ncsn 
+</details>
