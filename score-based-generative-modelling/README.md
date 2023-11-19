@@ -64,7 +64,7 @@ Remark(s): We don't maximize the log-likelihood (e.g. in NVP), a surrogate such 
 
 I've reimplemented a Denoising Diffusion Probabilistic Model (DDPM) based on the "[Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)" paper by Ho et al (2020). I use a network similar to `NoiseConditionalScoreNetwork` to predict the noise. I condition the model on a scaled version of the time instead of noise (the scaling matters a lot, w/o => cannot sample).
 
-We trained our model with 1000 epochs (about 12-13 min of training). We display generated samples in red and real samples in blue. We also show a partial trajectory by the reverse diffusion process (ignoring the first 250 steps).
+We trained our model with 1000 epochs (about 12-13 min of training). We display generated samples in red and real samples in blue. We also show in black a partial trajectory by the reverse process (ignoring the first 250 steps).
 
 - First test case: A standard normal distribution split in two
 
