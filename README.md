@@ -19,7 +19,8 @@ In this section, I explain what are some of the concepts (non-exhaustive) I find
 - Variational AE (although it didn't really give good results)
 - Non-Volume Preserving Networks with coupling layers
 - Generative Adversarial Networks (although it didn't really give good results)
-- Noise Conditional Score Networks
+- Noise Conditional Score Networks (on my toy distributions)
+- Denoising Diffusion Probabilistic Model (on my toy distributions)
 </details>
 
 <details>
@@ -27,7 +28,7 @@ In this section, I explain what are some of the concepts (non-exhaustive) I find
 
 - Noise Conditional Score Networks on CIFAR-10 or FashionMNIST (not working yet so I didn't upload it)
 - Denoising Diffusion Probabilistic Model (not working yet so I didn't upload it)
-- Generative Pre-trained Transformer, decoder-only part of the Transformer (did not train the model, byte pair encoding tokenizer not implemented, inference missing) but I've uploaded the model
+- Generative Pre-trained Transformer, decoder-only part of the Transformer (not completely working, issues with long-term dependencies)
 </details>
 
 <details>
