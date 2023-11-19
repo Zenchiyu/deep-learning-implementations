@@ -75,6 +75,4 @@ We created the data distribution by cutting a standard normal distribution in tw
 
 | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/1423b55a-03fc-4e59-b84c-1af04776f856" width=300>
 |:--:|
-
-Due to the noise schedule, we can observe that the trajectory becomes less erratic as it continues.
 </details>
