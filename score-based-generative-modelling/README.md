@@ -64,6 +64,8 @@ Remark(s): We don't maximize the log-likelihood (e.g. in NVP), a surrogate such 
 
 I've reimplemented a Denoising Diffusion Probabilistic Model (DDPM) based on the "[Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239)" paper by Ho et al (2020). I use a network similar to `NoiseConditionalScoreNetwork` to predict the noise. I condition the model on a scaled version of the time instead of noise (the scaling matters a lot, w/o => cannot sample).
 
+We trained our model with 1000 epochs (about 12-13 min of training). We display generated samples in red and real samples in blue. We also show a partial trajectory by the reverse diffusion process (ignoring the first 250 steps).
+
 - First test case: A standard normal distribution split in two
 
 | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/0aafe0b0-3468-4c98-9c2e-b3c919fe3ead" width=300>
@@ -75,4 +77,22 @@ We created the data distribution by cutting a standard normal distribution in tw
 
 | <img src="https://github.com/Zenchiyu/deep-learning-implementations/assets/49496107/1423b55a-03fc-4e59-b84c-1af04776f856" width=300>
 |:--:|
+
+
+Model:
+```
+NoisePredictor(
+  (layers): Sequential(
+    (0): Linear(in_features=3, out_features=128, bias=True)
+    (1): Softplus(beta=1, threshold=20)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): Softplus(beta=1, threshold=20)
+    (4): Linear(in_features=128, out_features=2, bias=True)
+  )
+)
+```
+
+I condition the model on a scaled version of the time instead of noise (the scaling matters a lot, w/o => cannot sample).
+
+Remark(s): DDPM indirectly estimates the parameters of the gaussians in the reverse process
 </details>
