@@ -31,7 +31,7 @@ In this section, I explain what are some of the concepts (non-exhaustive) I find
 - Denoising Diffusion Probabilistic Model (not working yet so I didn't upload it)
 - Generative Pre-trained Transformer, decoder-only part of the Transformer (not completely working, issues with long-term dependencies)
 - TODO: Latent Diffusion Model by using a diffusion model in the latent space. Encoder and decoder from VQ-VAE or VQ-GAN.
-- TODO: Video diffusion (based on GAIA-1 and TECO) where the dynamics & temporal consistency come from a transformer and realistic/detailed videos come from the diffusion model. The transformer would be working on tokens obtained from the Vector-quantization and the diffusion model would be generating frames conditionned on generated tokens (by AR transformer).
+- TODO: Video diffusion (based on GAIA-1 and TECO) where the dynamics & temporal consistency come from a transformer and realistic/detailed videos come from the diffusion model. The transformer would be working on tokens obtained from the Vector-quantization and the diffusion model would be generating frames conditionned on generated tokens (by AR transformer). Note: from the encoder-decoder pair, the diffusion model replaces the decoder. 
 </details>
 
 <details>
