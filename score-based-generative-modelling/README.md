@@ -94,5 +94,5 @@ NoisePredictor(
 
 I condition the model on a scaled version of the time instead of noise (the scaling matters a lot, w/o => cannot sample).
 
-Remark(s): DDPM indirectly estimates the parameters of the gaussians in the reverse process
+Remark(s): DDPM indirectly estimates the parameters of the conditional disitributions (gaussians) in the reverse process
 </details>
