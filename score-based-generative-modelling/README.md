@@ -5,7 +5,7 @@
   - [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) paper by Ho et al (2020) 
   - [What are diffusion models? Connection with NCSN (SMLD)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#connection-with-noise-conditioned-score-networks-ncsn) blog post by Lilian Weng
   - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) paper by Song et al. formally clarifies the link between DDPM and SMLD
-- Stochastic Differential Equations (SDE) and Probability Flow ODE:
+- Stochastic Differential Equations (SDE) and Probability Flow ODE: an SDE yields a stochastic process as solution (if discretized, we can get a random walk of images in the image space)
   - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) paper by Song et al.:
     - DDPM and SMLD forward processes are special discretizations of different forward SDEs.
     - They encapsulate DDPM and SMLD samplers under their *predictor-corrector samplers*: DDPM sampler only has a "predictor" (reverse process is a special discretization of its reverse-time SDE) while SMLD only has a "corrector" (annealed Langevin dynamics)
