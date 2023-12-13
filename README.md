@@ -19,7 +19,7 @@ In this section, I explain what are some of the concepts (non-exhaustive) I find
 - Variational AE (although it didn't really give good results)
 - Non-Volume Preserving Networks with coupling layers
 - Generative Adversarial Networks (although it didn't really give good results)
-- Noise Conditional Score Networks (on my toy distributions)
+- Noise Conditional Score Networks (on my toy distributions) (a.k.a Score matching with Langevin Dynamics (SMLD))
 - Denoising Diffusion Probabilistic Model (on my toy distributions)
 - EDM diffusion model based on [the paper](https://arxiv.org/abs/2206.00364) by Karras et al. (currently in a private repository, can generate unconditionally and conditionally for FashionMNIST and CIFAR-10 with Classifier-Free Guidance. Can generate also faces from CelebA.). The model is a U-net with residual blocks and multi-head self attention blocks (self-attention in lower resolution blocks.)
 </details>
