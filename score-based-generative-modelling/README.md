@@ -1,22 +1,28 @@
 <details>
 <summary>Interesting links/generalizations</summary>
   
-- DDPM as a special case of NCSN:
+- DDPM is related to SMLD since both minimize a weighted sum of denoising score matching objectives:
   - [Denoising Diffusion Probabilistic Models](https://arxiv.org/abs/2006.11239) paper by Ho et al (2020) 
-  - [What are diffusion models? Connection with NCSN](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#connection-with-noise-conditioned-score-networks-ncsn) blog post by Lilian Weng
+  - [What are diffusion models? Connection with NCSN (SMLD)](https://lilianweng.github.io/posts/2021-07-11-diffusion-models/#connection-with-noise-conditioned-score-networks-ncsn) blog post by Lilian Weng
 - Stochastic Differential Equations (SDE) and Probability Flow ODE:
-  - DDPM and NCSN as special discretizations of a reverse-time SDE:
-    - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) paper by Song et al.
-  - Another way of looking at the Probability Flow ODE of Song et al.:
-    - [Elucidating the Design Space of Diffusion-Based Generative Models](https://arxiv.org/abs/2206.00364) paper by Karras et al.
+  - [Score-Based Generative Modeling through Stochastic Differential Equations](https://arxiv.org/abs/2011.13456) paper by Song et al.:
+    - DDPM and SMLD forward processes are special discretizations of different forward SDEs.
+    - They encapsulate DDPM and SMLD samplers under their *predictor-corrector samplers*: DDPM sampler only has a "predictor" (reverse process is a special discretization of its reverse-time SDE) while SMLD only has a "corrector" (annealed Langevin dynamics)
+    - Deterministic sampling by discretizing the probability flow ODE
+  - [Elucidating the Design Space of Diffusion-Based Generative Models](https://arxiv.org/abs/2206.00364) paper by Karras et al.:
+    - Rewrite the Probability Flow ODE of Song et al. into a more intuitive equation
+    - Same for the forward/reverse-time SDEs
+    - Implicit Langevin term in SDEs
+    - Euler/Heun + explicit Langevin-like stochastic part -> stochastic sampling. No SDE solver
+    - Input, output normalizations. Also handle tradeoff between predicting the noise or the original image at different noise levels (don't want model to just collapse to the identity function)
       
   So we can sample pictures by explicitly using numerical ODE/SDE solvers after estimating the score functions of perturbed data distributions $p_t(x)$. There's a connection between the Probability Flow ODE and SDE.
 </details>
 
 <details>
-<summary>Noise Conditional Score Network using an MLP on my toy distributions</summary>
+<summary>Score matching with Langeving Dynamics on my toy distributions</summary>
 
-I've reimplemented a Noise Conditional Score Network (NCSN) based on the "[Generative Modeling by Estimating Gradients of the Data Distribution](https://arxiv.org/abs/1907.05600)" paper by Yang Song and Stefano Ermon. My NCSN is a $3$-layer MLP with soft plus activation functions since the authors also used a similar architecture on their toy examples.
+I've reimplemented a Score matching with Langeving Dynamics (SMLD) based on the "[Generative Modeling by Estimating Gradients of the Data Distribution](https://arxiv.org/abs/1907.05600)" paper by Yang Song and Stefano Ermon. My Noise Conditional Score Network (NCSN) is a $3$-layer MLP with soft plus activation functions since the authors also used a similar architecture on their toy examples.
 
 
 We trained our model with 1000 epochs (about 7-8 min of training). The first column gives vector fields corresponding to the estimated score functions for perturbed data distributions with $\sigma=0.01$. The second column shows generated samples in red and real samples in blue. The last column also shows a partial trajectory by the Annealed Langevin Dynamics (ignoring the first 250 steps). The score of a distribution $p(x)$ is $\nabla_x \log p(x)$
@@ -51,7 +57,7 @@ NoiseConditionalScoreNetwork(
 ```
 The additional input feature corresponds to the standard deviation $\sigma$ in $s_\theta(x, \sigma)$.
 
-Remark(s): We don't maximize the log-likelihood (e.g. in NVP), a surrogate such as the evidence lower bound (see VAE), or train models in an adversarial setting (e.g. GAN). Instead, the NCSN's training consists of estimating the score function of the data distribution and then using it to get samples at inference time (via the annealed Langevin dynamics, inspired by Simulated Annealing).
+Remark(s): We don't maximize the log-likelihood (e.g. in NVP), a surrogate such as the evidence lower bound (see VAE), or train models in an adversarial setting (e.g. GAN). Instead, the SMLD's training consists of estimating the score function of the data distribution and then using it to get samples at inference time (via the annealed Langevin dynamics, inspired by Simulated Annealing).
 
 "Key sentences":
 - Aggregating individual denoising score matching objectives 
