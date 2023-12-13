@@ -16,7 +16,7 @@
     - Euler/Heun + explicit Langevin-like stochastic part -> stochastic sampling. No SDE solver
     - Input, output normalizations. Also handle tradeoff between predicting the noise or the original image at different noise levels (don't want model to just collapse to the identity function)
       
-  So we can sample pictures by explicitly using numerical ODE/SDE solvers after estimating the score functions of perturbed data distributions $p_t(x)$. There's a connection between the Probability Flow ODE and SDE.
+  So we can sample pictures by explicitly using numerical ODE/SDE solvers (or variants) after estimating the score functions of perturbed data distributions $p_t(x)$ or $p(x, \sigma(t))$. There's a connection between the Probability Flow ODE and SDE. Note that [Karras et al.](https://arxiv.org/abs/2206.00364) differentiate $p_t(x)$ with $p(x, \sigma(t))$. The latter is obtained only through a convolution between the data distribution and a gaussian distribution (See Appendix B, p.21).
 </details>
 
 <details>
