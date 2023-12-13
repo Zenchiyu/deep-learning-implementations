@@ -22,9 +22,9 @@
 </details>
 
 <details>
-<summary>Score matching with Langeving Dynamics on my toy distributions</summary>
+<summary>Score matching with Langevin Dynamics on my toy distributions</summary>
 
-I've reimplemented Score matching with Langeving Dynamics (SMLD) based on the "[Generative Modeling by Estimating Gradients of the Data Distribution](https://arxiv.org/abs/1907.05600)" paper by Yang Song and Stefano Ermon. My Noise Conditional Score Network (NCSN) is a $3$-layer MLP with soft plus activation functions since the authors also used a similar architecture on their toy examples.
+I've reimplemented Score matching with Langevin Dynamics (SMLD) based on the "[Generative Modeling by Estimating Gradients of the Data Distribution](https://arxiv.org/abs/1907.05600)" paper by Yang Song and Stefano Ermon. My Noise Conditional Score Network (NCSN) is a $3$-layer MLP with soft plus activation functions since the authors also used a similar architecture on their toy examples.
 
 
 We trained our model with 1000 epochs (about 7-8 min of training). The first column gives vector fields corresponding to the estimated score functions for perturbed data distributions with $\sigma=0.01$. The second column shows generated samples in red and real samples in blue. The last column also shows a partial trajectory by the Annealed Langevin Dynamics (ignoring the first 250 steps). The score of a distribution $p(x)$ is $\nabla_x \log p(x)$
